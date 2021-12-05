@@ -23,7 +23,7 @@ Include `tinyexr.h` with `TINYEXR_IMPLEMENTATION` flag (do this only for **one**
 
 ### Compile flags
 
-* `TINYEXR_USE_MINIZ`</span> As opposed to the original repo, this fork always uses the system's zlib header. Setting this flag therefore won't archieve anything.
+* `TINYEXR_USE_MINIZ` As opposed to the original repo, this fork always uses the system's zlib header. Setting this flag therefore won't archieve anything.
 * `TINYEXR_USE_PIZ` Enable PIZ compression support (default = 1)
 * `TINYEXR_USE_ZFP` Enable ZFP compression supoort (TinyEXR extension, default = 0)
 * `TINYEXR_USE_THREAD` Enable threaded loading using C++11 thread (Requires C++11 compiler, default = 0)
