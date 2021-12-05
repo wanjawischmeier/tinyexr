@@ -8,7 +8,7 @@ To use `tinyexr`, simply copy `tinyexr.h`, `miniz.c` and `miniz.h`(for zlib. You
 
 ## Original repository
 
-For an up-to-date [features list](https://github.com/syoyo/tinyexr#features), informations on [how to contribute](https://github.com/syoyo/tinyexr#todo), useful [examples](https://github.com/syoyo/tinyexr#examples) and much more, please take a look at the [original repository](https://github.com/syoyo/tinyexr)
+For an up-to-date [features list](https://github.com/syoyo/tinyexr#features), informations on [how to contribute](https://github.com/syoyo/tinyexr#todo), useful [examples](https://github.com/syoyo/tinyexr#examples) and much more, please take a look at the [original repository](https://github.com/syoyo/tinyexr) by [syoyo](https://github.com/syoyo).
 
 ## Usage
 
