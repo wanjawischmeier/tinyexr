@@ -1,131 +1,14 @@
 # Tiny OpenEXR image library.
 
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/syoyo/tinyexr.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/syoyo/tinyexr/alerts/)
-
 ![Example](https://github.com/syoyo/tinyexr/blob/master/asakusa.png?raw=true)
-
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/k07ftfe4ph057qau/branch/master?svg=true)](https://ci.appveyor.com/project/syoyo/tinyexr/branch/master)
-
-[![Travis build Status](https://travis-ci.org/syoyo/tinyexr.svg)](https://travis-ci.org/syoyo/tinyexr)
-
-[![Coverity Scan Build Status](https://scan.coverity.com/projects/5827/badge.svg)](https://scan.coverity.com/projects/5827)
 
 `tinyexr` is a small, single header-only library to load and save OpenEXR (.exr) images.
 `tinyexr` is written in portable C++ (no library dependency except for STL), thus `tinyexr` is good to embed into your application.
 To use `tinyexr`, simply copy `tinyexr.h`, `miniz.c` and `miniz.h`(for zlib. You can use system-installed zlib instead of miniz. Controlled with `TINYEXR_USE_MINIZ` compile flag) into your project.
 
-# Features
+## Original repository
 
-Current status of `tinyexr` is:
-
-- OpenEXR v1 image
-  - [x] Scanline format
-  - [x] Tiled format
-    - [x] Tile format with no LoD (load).
-    - [x] Tile format with LoD (load).
-    - [x] Tile format with no LoD (save).
-    - [x] Tile format with LoD (save).
-  - [x] Custom attributes
-- OpenEXR v2 image
-  - [ ] Multipart format
-    - [x] Load multi-part image
-    - [x] Save multi-part image
-    - [ ] Load multi-part deep image
-    - [ ] Save multi-part deep image
-- OpenEXR v2 deep image
-  - [x] Loading scanline + ZIPS + HALF or FLOAT pixel type.
-- Compression
-  - [x] NONE
-  - [x] RLE
-  - [x] ZIP
-  - [x] ZIPS
-  - [x] PIZ
-  - [x] ZFP (tinyexr extension)
-  - [ ] B44?
-  - [ ] B44A?
-  - [ ] PIX24?
-- Line order.
-  - [x] Increasing, decreasing (load)
-  - [ ] Random?
-  - [x] Increasing (save)
-  - [ ] decreasing (save)
-- Pixel format (UINT, FLOAT).
-  - [x] UINT, FLOAT (load)
-  - [x] UINT, FLOAT (deep load)
-  - [x] UINT, FLOAT (save)
-  - [ ] UINT, FLOAT (deep save)
-- Support for big endian machine.
-  - [x] Loading scanline image
-  - [x] Saving scanline image
-  - [x] Loading multi-part channel EXR (not tested)
-  - [x] Saving multi-part channel EXR (not tested)
-  - [ ] Loading deep image
-  - [ ] Saving deep image
-- Optimization
-  - [x] C++11 thread loading
-  - [ ] C++11 thread saving
-  - [ ] ISPC?
-  - [x] OpenMP multi-threading in EXR loading.
-  - [x] OpenMP multi-threading in EXR saving.
-  - [ ] OpenMP multi-threading in deep image loading.
-  - [ ] OpenMP multi-threading in deep image saving.
-* C interface.
-  * You can easily write language bindings (e.g. golang)
-
-# Supported platform
-
-* [x] x86-64
-  * [x] Windows 7 or later
-  * [x] Linux(posix) system
-  * [x] macOS
-* [x] AARCH64
-  * [x] aarch64 linux(e.g. Raspberry Pi)
-  * [x] Android
-  * [x] iOS
-  * [x] macOS
-* [ ] RISC-V(Should work)
-* [x] Big endian machine(not maintained, but should work)
-  * SPARC, PowerPC, ...
-* [x] WebAssembly(JavaScript)
-  * Loader only(See ![js](experimental/js/))
-* [x] Python binding
-  * Loader only https://pypi.org/project/pytinyexr/
-
-# Requirements
-
-* C++ compiler(C++11 recommended. C++03 may work)
-
-# Use case
-
-## New TinyEXR (v0.9.5+)
-
-* Godot. Multi-platform 2D and 3D game engine https://godotengine.org/
-* Filament. PBR engine(used in a converter tool). https://github.com/google/filament
-* PyEXR. Loading OpenEXR (.exr) images using Python. https://github.com/ialhashim/PyEXR
-* The-Forge. The Forge Cross-Platform Rendering Framework PC, Linux, Ray Tracing, macOS / iOS, Android, XBOX, PS4 https://github.com/ConfettiFX/The-Forge
-* Your project here!
-
-## Older TinyEXR (v0.9.0)
-
-* mallie https://github.com/lighttransport/mallie
-* Cinder 0.9.0 https://libcinder.org/notes/v0.9.0
-* Piccante (develop branch) http://piccantelib.net/
-* Your project here!
-
-## Examples
-
-* [examples/deepview/](examples/deepview) Deep image view
-* [examples/rgbe2exr/](examples/rgbe2exr) .hdr to EXR converter
-* [examples/exr2rgbe/](examples/exr2rgbe) EXR to .hdr converter
-* [examples/ldr2exr/](examples/exr2rgbe) LDR to EXR converter
-* [examples/exr2ldr/](examples/exr2ldr) EXR to LDR converter
-* [examples/exr2fptiff/](examples/exr2fptiff) EXR to 32bit floating point TIFF converter
-  * for 32bit floating point TIFF to EXR convert, see https://github.com/syoyo/tinydngloader/tree/master/examples/fptiff2exr
-* [examples/cube2longlat/](examples/cube2longlat) Cubemap to longlat (equirectangler) converter
-
-## Experimental
-
-* [experimental/js/](experimental/js) JavaScript port using Emscripten
+For an up-to-date [features list](https://github.com/syoyo/tinyexr#features), informations on [how to contribute](https://github.com/syoyo/tinyexr#todo), useful [examples](https://github.com/syoyo/tinyexr#examples) and much more, please take a look at the [original repository](https://github.com/syoyo/tinyexr)
 
 ## Usage
 
@@ -134,45 +17,19 @@ NOTE: **API is still subject to change**. See the source code for details.
 Include `tinyexr.h` with `TINYEXR_IMPLEMENTATION` flag (do this only for **one** .cc file).
 
 ```cpp
-//Please include your own zlib-compatible API header before
-//including `tinyexr.h` when you disable `TINYEXR_USE_MINIZ`
-//#define TINYEXR_USE_MINIZ 0
-//#include "zlib.h"
 #define TINYEXR_IMPLEMENTATION
 #include "tinyexr.h"
 ```
 
 ### Compile flags
 
-* `TINYEXR_USE_MINIZ` Use miniz (default = 1). Please include `zlib.h` header before `tinyexr.h` if you disable miniz support(e.g. use system's zlib).
+* <code><span style="color:red">TINYEXR_USE_MINIZ</span></code> As opposed to the original repo, this fork always uses the system's zlib header. Setting this flag therefore won't archieve anything.
 * `TINYEXR_USE_PIZ` Enable PIZ compression support (default = 1)
 * `TINYEXR_USE_ZFP` Enable ZFP compression supoort (TinyEXR extension, default = 0)
 * `TINYEXR_USE_THREAD` Enable threaded loading using C++11 thread (Requires C++11 compiler, default = 0)
 * `TINYEXR_USE_OPENMP` Enable OpenMP threading support (default = 1 if `_OPENMP` is defined)
   * Use `TINYEXR_USE_OPENMP=0` to force disable OpenMP code path even if OpenMP is available/enabled in the compiler.
-
-### Quickly reading RGB(A) EXR file.
-
-```cpp
-  const char* input = "asakusa.exr";
-  float* out; // width * height * RGBA
-  int width;
-  int height;
-  const char* err = NULL; // or nullptr in C++11
-
-  int ret = LoadEXR(&out, &width, &height, input, &err);
-
-  if (ret != TINYEXR_SUCCESS) {
-    if (err) {
-       fprintf(stderr, "ERR : %s\n", err);
-       FreeEXRErrorMessage(err); // release memory of error message.
-    }
-  } else {
-    ...
-    free(out); // release memory of image data
-  }
-
-```
+* `NOMINMAX` You may need to [set this Preprocessor Definition](https://docs.microsoft.com/en-us/cpp/build/reference/d-preprocessor-definitions?view=msvc-170#to-set-this-compiler-option-in-the-visual-studio-development-environment) (in Visual Studio) for the project to compile successfully.
 
 ### Reading layered RGB(A) EXR file.
 
@@ -434,126 +291,12 @@ See `example/deepview` for actual usage.
 
 ![DeepViewExample](https://github.com/syoyo/tinyexr/blob/master/examples/deepview/deepview_screencast.gif?raw=true)
 
-## TinyEXR extension
-
-### ZFP
-
-#### NOTE
-
-TinyEXR adds ZFP compression as an experimemtal support (Linux and MacOSX only).
-
-ZFP only supports FLOAT format pixel, and its image width and height must be the multiple of 4, since ZFP compresses pixels with 4x4 pixel block.
-
-#### Setup
-
-Checkout zfp repo as an submodule.
-
-    $ git submodule update --init
-
-#### Build
-
-Then build ZFP
-
-    $ cd deps/ZFP
-    $ mkdir -p lib   # Create `lib` directory if not exist
-    $ make
-
-Set `1` to `TINYEXT_USE_ZFP` define in `tinyexr.h`
-
-Build your app with linking `deps/ZFP/lib/libzfp.a`
-
-#### ZFP attribute
-
-For ZFP EXR image, the following attribute must exist in its EXR image.
-
-* `zfpCompressionType` (uchar).
-  * 0 = fixed rate compression
-  * 1 = precision based variable rate compression
-  * 2 = accuracy based variable rate compression
-
-And the one of following attributes must exist in EXR, depending on the `zfpCompressionType` value.
-
-* `zfpCompressionRate` (double)
-  * Specifies compression rate for fixed rate compression.
-* `zfpCompressionPrecision` (int32)
-  * Specifies the number of bits for precision based variable rate compression.
-* `zfpCompressionTolerance` (double)
-  * Specifies the tolerance value for accuracy based variable rate compression.
-
-#### Note on ZFP compression.
-
-At least ZFP code itself works well on big endian machine.
-
-## Unit tests
-
-See `test/unit` directory.
-
-## TODO
-
-Contribution is welcome!
-
-- [ ] Compression
-  - [ ] B44?
-  - [ ] B44A?
-  - [ ] PIX24?
-- [ ] Custom attributes
-  - [x] Normal image (EXR 1.x)
-  - [ ] Deep image (EXR 2.x)
-- [ ] JavaScript library (experimental, using Emscripten)
-  - [x] LoadEXRFromMemory
-  - [ ] SaveMultiChannelEXR
-  - [ ] Deep image save/load
-- [ ] Write from/to memory buffer.
-  - [ ] Deep image save/load
-- [ ] Tile format.
-  - [x] Tile format with no LoD (load).
-  - [ ] Tile format with LoD (load).
-  - [ ] Tile format with no LoD (save).
-  - [ ] Tile format with LoD (save).
-- [ ] Support for custom compression type.
-  - [x] zfp compression (Not in OpenEXR spec, though)
-  - [ ] zstd?
-- [x] Multi-channel.
-- [ ] Multi-part (EXR2.0)
-  - [x] Load multi-part image
-  - [ ] Load multi-part deep image
-- [ ] Line order.
-  - [x] Increasing, decreasing (load)
-  - [ ] Random?
-  - [ ] Increasing, decreasing (save)
-- [ ] Pixel format (UINT, FLOAT).
-  - [x] UINT, FLOAT (load)
-  - [x] UINT, FLOAT (deep load)
-  - [x] UINT, FLOAT (save)
-  - [ ] UINT, FLOAT (deep save)
-- [ ] Support for big endian machine.
-  - [ ] Loading multi-part channel EXR
-  - [ ] Saving multi-part channel EXR
-  - [ ] Loading deep image
-  - [ ] Saving deep image
-- [ ] Optimization
-  - [ ] ISPC?
-  - [x] OpenMP multi-threading in EXR loading.
-  - [x] OpenMP multi-threading in EXR saving.
-  - [ ] OpenMP multi-threading in deep image loading.
-  - [ ] OpenMP multi-threading in deep image saving.
-
-## Python bindings
-
-`pytinyexr` is available: https://pypi.org/project/pytinyexr/ (loading only as of 0.9.1)
-
-## Similar or related projects
-
-* miniexr: https://github.com/aras-p/miniexr (Write OpenEXR)
-* stb_image_resize.h: https://github.com/nothings/stb (Good for HDR image resizing)
-
 ## License
 
 3-clause BSD
 
-`tinyexr` uses miniz, which is developed by Rich Geldreich <richgel99@gmail.com>, and licensed under public domain.
-
 `tinyexr` tools uses stb, which is licensed under public domain: https://github.com/nothings/stb
+
 `tinyexr` uses some code from OpenEXR, which is licensed under 3-clause BSD license.
 
 ## Author(s)
